@@ -14,7 +14,7 @@ export default function Footer() {
 
           <div className="mt-5 md:mt-0">
             <p>(555) 555-5555</p>
-            <p>circleelevenmanufacturing@gmail.com</p>
+            <p>circle11built@gmail.com</p>
           </div>
         </div>
 
