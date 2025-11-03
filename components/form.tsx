@@ -47,10 +47,10 @@ export default function Form() {
         data.append(key, form[key]);
       }
     }
+
     try {
       await fetch("/api/upload", { method: "POST", body: data });
-      alert("Submitted!");
-      setForm(DEFAULT_VALUES);
+      alert("Successfully Submitted");
     } catch (error) {
       alert("Unable to submit" + error);
     }
@@ -62,7 +62,7 @@ export default function Form() {
         <input
           name="first"
           required
-          placeholder="First Name*"
+          placeholder="First Name"
           onChange={handleChange}
           className="border-b border-gray-300 py-3 focus:outline-none w-full mb-6 md:mb-0"
         />
@@ -70,7 +70,7 @@ export default function Form() {
         <input
           name="last"
           required
-          placeholder="Last Name*"
+          placeholder="Last Name"
           onChange={handleChange}
           className="border-b border-gray-300 py-3 focus:outline-none w-full"
         />
@@ -79,7 +79,6 @@ export default function Form() {
       <div className="md:grid grid-cols-2 gap-6">
         <input
           name="phone"
-          required
           placeholder="Phone"
           type="tel"
           onChange={handleChange}
@@ -90,7 +89,7 @@ export default function Form() {
           name="email"
           type="email"
           required
-          placeholder="Email*"
+          placeholder="Email"
           onChange={handleChange}
           className="w-full border-b border-gray-300 py-3 focus:outline-none"
         />
@@ -100,7 +99,7 @@ export default function Form() {
         name="subject"
         type="subject"
         required
-        placeholder="Subject*"
+        placeholder="Subject"
         onChange={handleChange}
         className="w-full border-b border-gray-300 py-3 focus:outline-none"
       />
@@ -108,7 +107,7 @@ export default function Form() {
       <textarea
         name="message"
         rows={5}
-        placeholder="Message*"
+        placeholder="Message"
         onChange={handleChange}
         className="w-full border-b border-gray-300 py-3 focus:outline-none"
       />
@@ -125,7 +124,6 @@ export default function Form() {
             {form.attachments.length > 0 ? `${form.attachments.length} file(s) selected` : "Choose files"}
           </span>
 
-          {/* BROWSE BUTTON */}
           <span className="ml-2 px-3 py-2 bg-black text-white text-sm hover:bg-gray-800">Browse</span>
 
           <input type="file" name="attachments" multiple onChange={handleChange} className="hidden" />
