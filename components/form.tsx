@@ -12,17 +12,19 @@ type FormData = {
   attachments: FileList | [];
 };
 
+const DEFAULT_VALUES: FormData = {
+  first: "",
+  last: "",
+  phone: "",
+  email: "",
+  subject: "",
+  leadTime: "",
+  message: "",
+  attachments: [],
+};
+
 export default function Form() {
-  const [form, setForm] = useState<FormData>({
-    first: "",
-    last: "",
-    phone: "",
-    email: "",
-    subject: "",
-    leadTime: "",
-    message: "",
-    attachments: [],
-  });
+  const [form, setForm] = useState<FormData>(DEFAULT_VALUES);
 
   const handleChange = (e: any) => {
     const { name, value, files } = e.target;
@@ -48,6 +50,7 @@ export default function Form() {
     try {
       await fetch("/api/upload", { method: "POST", body: data });
       alert("Submitted!");
+      setForm(DEFAULT_VALUES);
     } catch (error) {
       alert("Unable to submit" + error);
     }
@@ -59,7 +62,7 @@ export default function Form() {
         <input
           name="first"
           required
-          placeholder="First Name"
+          placeholder="First Name*"
           onChange={handleChange}
           className="border-b border-gray-300 py-3 focus:outline-none w-full mb-6 md:mb-0"
         />
@@ -67,7 +70,7 @@ export default function Form() {
         <input
           name="last"
           required
-          placeholder="Last Name"
+          placeholder="Last Name*"
           onChange={handleChange}
           className="border-b border-gray-300 py-3 focus:outline-none w-full"
         />
@@ -87,7 +90,7 @@ export default function Form() {
           name="email"
           type="email"
           required
-          placeholder="Email"
+          placeholder="Email*"
           onChange={handleChange}
           className="w-full border-b border-gray-300 py-3 focus:outline-none"
         />
@@ -97,7 +100,7 @@ export default function Form() {
         name="subject"
         type="subject"
         required
-        placeholder="Subject"
+        placeholder="Subject*"
         onChange={handleChange}
         className="w-full border-b border-gray-300 py-3 focus:outline-none"
       />
@@ -105,7 +108,7 @@ export default function Form() {
       <textarea
         name="message"
         rows={5}
-        placeholder="Message"
+        placeholder="Message*"
         onChange={handleChange}
         className="w-full border-b border-gray-300 py-3 focus:outline-none"
       />
