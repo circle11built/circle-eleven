@@ -57,7 +57,7 @@ export default function Form() {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-6">
+    <form onSubmit={handleSubmit} className="space-y-6 font-geist">
       <div className="md:grid grid-cols-2 gap-6">
         <input
           name="first"
@@ -118,19 +118,21 @@ export default function Form() {
         onChange={handleChange}
         className="w-full border-b border-gray-300 py-3 focus:outline-none"
       />
+
+      {/* FILE UPLOAD */}
       <div className="w-full">
         <label className="flex items-center justify-between border-b border-gray-300 py-3 px-2 cursor-pointer hover:bg-gray-50">
           <span className="text-gray-700">
             {form.attachments.length > 0 ? `${form.attachments.length} file(s) selected` : "Choose files"}
           </span>
 
-          <span className="ml-2 px-3 py-2 bg-black text-white text-sm hover:bg-gray-800">Browse</span>
+          <span className="ml-2 px-3 py-2 bg-black text-white text-sm hover:bg-gray-800 rounded-sm">Browse</span>
 
           <input type="file" name="attachments" multiple onChange={handleChange} className="hidden" />
         </label>
       </div>
 
-      <button className="px-8 py-4 bg-black text-white hover:bg-neutral-900 cursor-pointer">Submit</button>
+      <button className="px-8 py-4 bg-black text-white hover:bg-neutral-900 cursor-pointer rounded-md rounded-br-2xl">Submit</button>
     </form>
   );
 }

@@ -4,9 +4,9 @@ export default function About() {
   return (
     <section className="mt-28">
       <div className="md:grid grid-cols-5 px-5 lg:px-56 mb-96">
-        <h1 className="font-semibold text-3xl xl:text-5xl col-span-2 lg:mb-0 mb-10">About</h1>
+        <h1 className="font-bold text-3xl xl:text-6xl col-span-2 lg:mb-0 mb-10">About</h1>
 
-        <div className="space-y-5 col-span-3 text-neutral-700">
+        <div className="space-y-5 col-span-3 text-neutral-800">
           <p>
             Every project, whether it’s a prototype, a small production run, or a one-off part, is a chance to turn an idea into something
             solid that works exactly as it should.

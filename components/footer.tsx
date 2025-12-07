@@ -13,7 +13,7 @@ export default function Footer() {
           </div>
 
           <div className="mt-5 md:mt-0">
-            <p>(555) 555-5555</p>
+            <p>(000) 000-0000</p>
             <p>circle11built@gmail.com</p>
           </div>
         </div>

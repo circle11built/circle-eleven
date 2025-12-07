@@ -5,42 +5,52 @@ textarea {
   padding-left: 1rem;
   background-color: #fafafa;
   border: 1px solid #a9a9a9;
+  border-radius: 0.2rem;
 }
 
 @font-face {
-  font-family: "acumin-regular";
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-  src: url("/fonts/acumin-regular.woff") format("woff2");
+  font-family: "mona-sans-bold";
+  src: url("/fonts/mona-sans-bold.ttf") format("truetype");
 }
 
 @font-face {
-  font-family: "poppins";
-  src: url("/fonts/poppins-regular.ttf") format("truetype");
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
+  font-family: "mona-sans-semibold";
+  src: url("/fonts/mona-sans-semibold.ttf") format("truetype");
 }
 
 @font-face {
-  font-family: "poppins";
-  src: url("/fonts/poppins-semibold.ttf") format("truetype");
-  font-weight: 600; /* semibold */
-  font-style: normal;
+  font-family: "geist";
+  src: url("/fonts/geist.ttf") format("truetype");
 }
 
 @theme {
-  --font-acumin: "acumin-regular", sans-serif;
-  --font-poppins: "poppins", sans-serif;
+  --font-mona-bold: "mona-sans-bold", sans-serif;
+  --font-mona-semibold: "mona-sans-semibold", sans-serif;
+  --font-geist: "geist", sans-serif;
 }
 
-h1,
+h1 {
+  @apply font-mona-bold;
+}
+
 h2 {
-  @apply font-acumin;
+  @apply font-mona-semibold;
 }
 
 p,
 a {
-  @apply font-poppins;
+  @apply font-geist;
+}
+
+@layer utilities {
+  .bg-dotted-stripes {
+    background-image: repeating-linear-gradient(
+      to right,
+      rgba(0, 0, 0, 0.05) 0px,
+      rgba(0, 0, 0, 0.05) 1px,
+      transparent 1px,
+      transparent 160px
+    );
+    border-style: dashed;
+  }
 }
