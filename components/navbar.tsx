@@ -14,6 +14,7 @@ export default function Navbar() {
 
   const navItems = [
     { href: "/", label: "Work" },
+    { href: "/services", label: "Services" },
     { href: "/about", label: "About" },
     { href: "/contact", label: "Contact" },
   ];
@@ -41,10 +42,10 @@ export default function Navbar() {
         </nav>
 
         <div className="col-start-3 ml-auto flex gap-5 items-center">
-          <CTAButton text="Get a Quote" />
+          <CTAButton text="Get a Quote" onClick={() => router.push("/contact")} />
 
           {/* Mobile Menu Button */}
-          <button className="lg:hidden col-start-3 ml-auto bg-red-900 w-10 h-10 rounded-md" onClick={() => setOpen(true)}>
+          <button className="lg:hidden col-start-3 ml-auto bg-red-900 w-10 h-10 rounded-md cursor-pointer" onClick={() => setOpen(true)}>
             <Menu color="white" className="mx-auto" />
           </button>
         </div>
@@ -52,12 +53,12 @@ export default function Navbar() {
 
       {/* Mobile Side Nav */}
       {open && (
-        <div className="ease-in fixed inset-0 bg-black/40 z-50 md:hidden" onClick={() => setOpen(false)}>
+        <div className="ease-in fixed inset-0 bg-black/40 z-50 lg:hidden" onClick={() => setOpen(false)}>
           <div
             className="absolute top-0 right-0 w-full max-w-xs h-full bg-white shadow-xl p-10 flex flex-col"
             onClick={(e) => e.stopPropagation()}
           >
-            <button className="mb-10 flex justify-end" onClick={() => setOpen(false)}>
+            <button className="mb-10 flex justify-end cursor-pointer" onClick={() => setOpen(false)}>
               <X />
             </button>
 

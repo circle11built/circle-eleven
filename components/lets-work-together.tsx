@@ -16,7 +16,10 @@ export default function LetsWorkTogether({ hideDescription }: Props) {
         </p>
       )}
 
-      <Link className="bg-white py-6 px-16 rounded-md text-lg text-black whitespace-nowrap rounded-br-xl" href="/contact">
+      <Link
+        className="bg-white py-6 px-16 rounded-md text-lg text-black whitespace-nowrap rounded-br-xl hover:bg-neutral-200 ease-in duration-150"
+        href="/contact"
+      >
         Contact Us
       </Link>
     </div>

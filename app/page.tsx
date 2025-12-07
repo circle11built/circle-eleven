@@ -1,8 +1,13 @@
+"use client";
+
 import Clip from "@/components/clip";
 import CTAButton from "@/components/cta-button";
 import LetsWorkTogether from "@/components/lets-work-together";
+import { useRouter } from "next/navigation";
 
 export default function Home() {
+  const router = useRouter();
+
   const items = [
     {
       label: "Metal Cards",
@@ -25,8 +30,9 @@ export default function Home() {
       image: "/countersunk.png",
     },
     {
-      label: "Fittings",
-      image: "/pipe.png",
+      label: "Brackets",
+      image: "/bracket.png",
+      style: { objectPosition: "50% 45%" },
     },
   ];
 
@@ -50,7 +56,12 @@ export default function Home() {
               CNC Machining, prototyping, and small-batch production with industry-leading quiality and turnaround times
             </p>
 
-            <CTAButton text="Explore Our Capabilities" bgColor="bg-black" iconBgColor="bg-red-900" />
+            <CTAButton
+              text="Explore Our Capabilities"
+              bgColor="bg-black"
+              iconBgColor="bg-red-900"
+              onClick={() => router.push("/services")}
+            />
           </div>
         </div>
       </div>
@@ -58,24 +69,30 @@ export default function Home() {
       {/* STATS */}
       <div className="md:flex justify-between px-8 mb-12 mt-20 font-semibold hidden">
         <h4>Based in: St. Charles, IL</h4>
-        <h4 className="text-neutral-500 hover:text-red-700 hover:cursor-pointer">SCROLL DOWN</h4>
+
+        <button
+          className="text-neutral-500 hover:text-red-700 hover:cursor-pointer"
+          onClick={() => window.scrollTo({ top: document.body.scrollHeight, behavior: "smooth" })}
+        >
+          SCROLL DOWN
+        </button>
+
         <h4>41.9168° N, 88.3046° W</h4>
       </div>
 
       <img src="/cnc-prop.jpg" alt="cnc machine" className="w-full object-cover h-[30rem] lg:h-[64rem]" />
 
-      {/* RECENT WORK */}
+      {/* WORK */}
       <div className="px-5 md:px-20 py-20">
         <Clip text="What We Do" />
         <h2 className="font-bold max-w-3xl text-2xl md:text-3xl lg:text-5xl mb-6 mt-4">
           Scalable <span className="text-red-900">capabilities</span> for every challenge
         </h2>
 
-        {/* WORK SHOWCASE */}
-        <div className="md:grid md:grid-cols-3 mt-20 gap-10  px-5 md:px-16">
+        <div className="md:grid sm:grid-cols-2 lg:grid-cols-3 mt-20 gap-10  px-5 md:px-16">
           {items.map((item) => (
             <div className="mb-10 md:mb-0" key={item.label}>
-              <img className="h-72 w-full object-cover object-center rounded-sm" src={item.image} />
+              <img className="h-72 w-full object-cover rounded-sm" style={item?.style} src={item.image} />
               <p className="text-center text-xl md:text-2xl mt-3">{item.label}</p>
             </div>
           ))}
