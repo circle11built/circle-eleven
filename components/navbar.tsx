@@ -4,8 +4,10 @@ import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname, useRouter } from "next/navigation";
+import { Menu, X } from "lucide-react";
+import CTAButton from "./cta-button";
 
-export default function Header() {
+export default function Navbar() {
   const [open, setOpen] = useState(false);
   const pathname = usePathname();
   const router = useRouter();
@@ -17,27 +19,35 @@ export default function Header() {
   ];
 
   return (
-    <header className="top-0 left-0 w-full bg-white/80 z-50 text-neutral-600">
-      <div className="xl:px-24 px-5 md:px-16 py-6 flex justify-between items-center">
+    <header className="top-0 left-0 w-full">
+      <div className="xl:px-24 px-5 md:px-10 py-6 grid md:grid-cols-3 items-center">
         <Image src="/logo.png" className="cursor-pointer" alt="logo" width={60} height={60} onClick={() => router.replace("/")} />
 
         {/* Desktop Nav */}
-        <nav className="hidden md:flex space-x-8 text-lg">
+        <nav className="hidden justify-center lg:flex space-x-8 text-lg text-neutral-800">
           {navItems.map((item) => (
-            <Link
-              key={item.href}
-              href={item.href}
-              className={`hover:opacity-60 ${pathname === item.href ? "underline underline-offset-10 font-bold" : ""}`}
-            >
-              {item.label}
-            </Link>
+            <div className="flex items-center">
+              {pathname === item.href && <div className="w-1.5 h-1.5 bg-red-900 mr-2" />}
+
+              <Link
+                key={item.href}
+                href={item.href}
+                className={`hover:opacity-60 ${pathname === item.href && "font-semibold text-red-900"}`}
+              >
+                {item.label}
+              </Link>
+            </div>
           ))}
         </nav>
 
-        {/* Mobile Menu Button */}
-        <button className="md:hidden" onClick={() => setOpen(true)}>
-          <Image className="cursor-pointer" src="/menu.svg" alt="menu" width={30} height={30} />
-        </button>
+        <div className="col-start-3 ml-auto flex gap-5 items-center">
+          <CTAButton text="Get a Quote" />
+
+          {/* Mobile Menu Button */}
+          <button className="lg:hidden col-start-3 ml-auto bg-red-900 w-10 h-10 rounded-md" onClick={() => setOpen(true)}>
+            <Menu color="white" className="mx-auto" />
+          </button>
+        </div>
       </div>
 
       {/* Mobile Side Nav */}
@@ -48,7 +58,7 @@ export default function Header() {
             onClick={(e) => e.stopPropagation()}
           >
             <button className="mb-10 flex justify-end" onClick={() => setOpen(false)}>
-              <Image className="cursor-pointer" src="/x.svg" alt="menu" width={30} height={30} />
+              <X />
             </button>
 
             <nav className="flex flex-col space-y-10 text-2xl text-center">
