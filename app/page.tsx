@@ -39,11 +39,11 @@ export default function Home() {
   return (
     <section>
       {/* HEADER */}
-      <div className="pt-15 mx-10 lg:mx-24 pb-20 md:pb-0">
+      <div className="pt-15 mx-5 lg:mx-24 pb-20 md:pb-0">
         <Clip text="Trusted Manufacturing Partner" />
 
         <div className="flex items-center justify-between mt-5 lg:mt-0">
-          <h1 className="font-bold font-mona text-4xl md:text-6xl sm:max-w-xl lg:max-w-full lg:leading-18 lg:mt-0">
+          <h1 className="font-bold font-mona text-4xl md:text-6xl sm:max-w-xl lg:max-w-full lg:leading-16 lg:mt-0">
             Precision Machined Parts.
             <br />
             Delivered Fast.
