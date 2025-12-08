@@ -1,7 +1,12 @@
+"use client";
+
 import Clip from "@/components/clip";
 import CTAButton from "@/components/cta-button";
+import { useRouter } from "next/navigation";
 
 export default function About() {
+  const router = useRouter();
+
   return (
     <section className="mt-28">
       <div className="md:grid grid-cols-5 px-5 lg:px-56 mb-64">
@@ -44,7 +49,7 @@ export default function About() {
               by trust, quality, and a commitment to excellence in every project.
             </p>
 
-            <CTAButton text="Contact Us" bgColor="bg-black" iconBgColor="bg-red-900" />
+            <CTAButton text="Contact Us" bgColor="bg-black" iconBgColor="bg-red-900" onClick={() => router.push("/contact")} />
           </div>
 
           {/* MARQUEE */}
