@@ -1,10 +1,14 @@
-import LetsWorkTogether from "@/components/lets-work-together";
+import Clip from "@/components/clip";
+import CTAButton from "@/components/cta-button";
 
 export default function About() {
   return (
     <section className="mt-28">
-      <div className="md:grid grid-cols-5 px-5 lg:px-56 mb-96">
-        <h1 className="font-bold text-3xl xl:text-6xl col-span-2 lg:mb-0 mb-10">About</h1>
+      <div className="md:grid grid-cols-5 px-5 lg:px-56 mb-64">
+        <div className="col-span-2">
+          <Clip text="Who We Are" />
+          <h1 className="font-semibold text-3xl xl:text-6xl lg:mb-0 mb-10 mt-3">About us</h1>
+        </div>
 
         <div className="space-y-5 col-span-3 text-neutral-800">
           <p>
@@ -30,7 +34,28 @@ export default function About() {
         </div>
       </div>
 
-      <LetsWorkTogether hideDescription />
+      <div className="grid grid-cols-5">
+        <img src="/lathe.jpg" className="hidden md:block md:col-span-3 h-[35rem] w-full object-cover" />
+
+        <div className="bg-red-900 p-5 col-span-5 md:col-span-2 flex flex-col justify-between">
+          <div>
+            <p className="text-white font-medium text-lg mb-6">
+              We are a team dedicated to precision engineering, delivering solutions that shape industries worldwide. Our journey is defined
+              by trust, quality, and a commitment to excellence in every project.
+            </p>
+
+            <CTAButton text="Contact Us" bgColor="bg-black" iconBgColor="bg-red-900" />
+          </div>
+
+          {/* MARQUEE */}
+          <div className="marquee w-full mt-10 md:mt-0">
+            <div className="marquee-inner">
+              <p className="text-red-500/50 text-8xl font-semibold marquee-duplicate">SINCE - 2025</p>
+              <p className="text-red-500/50 text-8xl font-semibold marquee-duplicate">SINCE - 2025</p>
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
   );
 }

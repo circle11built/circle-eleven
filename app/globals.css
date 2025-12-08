@@ -3,9 +3,10 @@
 input:not([type="file"]),
 textarea {
   padding-left: 1rem;
-  background-color: #fafafa;
-  border: 1px solid #a9a9a9;
+  background-color: transparent;
+  border: 1px solid #424242;
   border-radius: 0.2rem;
+  color: white;
 }
 
 @font-face {
@@ -52,5 +53,36 @@ a {
       transparent 160px
     );
     border-style: dashed;
+  }
+}
+
+@layer utilities {
+  .marquee {
+    overflow: hidden;
+    position: relative;
+    white-space: nowrap;
+  }
+
+  .marquee-inner {
+    display: flex;
+    width: fit-content;
+    animation: marquee 12s linear infinite;
+  }
+
+  .marquee-inner > * {
+    padding-right: 3rem; /* spacing between repeats */
+  }
+
+  .marquee-duplicate {
+    flex-shrink: 0;
+  }
+
+  @keyframes marquee {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-50%);
+    }
   }
 }
