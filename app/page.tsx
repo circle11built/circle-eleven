@@ -93,7 +93,7 @@ export default function Home() {
           {items.map((item) => (
             <div className="mb-10 md:mb-0" key={item.label}>
               <img className="h-72 w-full object-cover rounded-sm" style={item?.style} src={item.image} />
-              <p className="text-center text-xl md:text-2xl mt-3">{item.label}</p>
+              <p className="text-xl md:text-2xl mt-3 font-medium">{item.label}</p>
             </div>
           ))}
         </div>
